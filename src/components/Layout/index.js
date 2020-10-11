@@ -4,14 +4,24 @@ import Navbar from "./Navbar"
 import { TABLET_SCREEN } from "../../theme/breakpoints"
 import Footer from "./Footer"
 import SocialMediaIcons from "./SocialMediaIcons"
+import RightSideBars from "./RightSideBars"
+import { Helmet } from "react-helmet"
+import { useIntl } from "gatsby-plugin-intl"
 
 const GlobalStyles = createGlobalStyle`
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
   body {
     background-color: white;
     font-family: Roboto, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     max-width: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -21,8 +31,13 @@ const GlobalStyles = createGlobalStyle`
 const PageGrid = styled.div`
   display: grid;
   min-height: 100vh;
-  grid-template-columns: [left-side-start start] 8% [left-side-end content-start] 80% [content-end right-side-start] 12% [right-side-end end];
-  grid-template-rows: [navbar-start start] 120px [navbar-end content-start] 1fr [content-end footer-start] 10% [footer-end end];
+  grid-template-columns: [left-side-start start] 8% [left-side-end content-start] 75% [content-end right-side-start] 17% [right-side-end end];
+  grid-template-rows:
+    [navbar-start start] 120px [navbar-end content-start] 1fr [content-end footer-start] minmax(
+      25%,
+      250px
+    )
+    [footer-end end];
 
   @media (max-width: ${TABLET_SCREEN}) {
     grid-template-columns: [start left-side-end content-start] 100% [content-end end];
@@ -43,14 +58,29 @@ const PageBackground = styled.div`
 `
 
 export default function Layout({ children }) {
+  const intl = useIntl()
+
+  const getCapitalizedTitle = () => {
+    const title = intl.formatMessage({
+      id: window.location.pathname.split("/").pop() || "home",
+    })
+    return title[0].toUpperCase() + title.slice(1)
+  }
+
   return (
-    <PageGrid>
-      <GlobalStyles />
-      <PageBackground />
-      <Navbar />
-      <PageWrapper>{children}</PageWrapper>
-      <SocialMediaIcons />
-      <Footer />
-    </PageGrid>
+    <React.Fragment>
+      <Helmet>
+        <title>{getCapitalizedTitle()}</title>
+      </Helmet>
+      <PageGrid>
+        <GlobalStyles />
+        <SocialMediaIcons />
+        <PageBackground />
+        <Navbar />
+        <PageWrapper>{children}</PageWrapper>
+        <RightSideBars />
+        <Footer />
+      </PageGrid>
+    </React.Fragment>
   )
 }

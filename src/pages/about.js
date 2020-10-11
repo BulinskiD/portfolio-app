@@ -1,10 +1,10 @@
 import React from "react"
 import Layout from "../components/Layout"
 
-export default function Home() {
+export default function About() {
   return (
     <Layout>
-      <div style={{ minHeight: "100vh" }}>Home</div>
+      <div>About</div>
     </Layout>
   )
 }

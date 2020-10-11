@@ -16,5 +16,15 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        path: `${__dirname}/src/intl`,
+        languages: [`en`, `pl`],
+        defaultLanguage: `en`,
+        redirect: false,
+      },
+    },
   ],
 }

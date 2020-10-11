@@ -1,12 +1,17 @@
 import React from "react"
 import styled from "styled-components"
 import { TABLET_SCREEN } from "../../theme/breakpoints"
+import GithubIcon from "../../theme/icons/GithubIcon"
+import LinkedInIcon from "../../theme/icons/LinkedInIcon"
+import Slide from "react-awesome-reveal"
 
 const IconsContainer = styled.aside`
   grid-column: start / left-side-end;
   grid-row: content-start / content-end;
-  place-self: center;
+  justify-self: center;
+  margin-top: 40vh;
   display: flex;
+  gap: 25px;
   flex-direction: column;
 
   @media (max-width: ${TABLET_SCREEN}) {
@@ -17,7 +22,10 @@ const IconsContainer = styled.aside`
 export default function SocialMediaIcons() {
   return (
     <IconsContainer>
-      <img src={"/github.svg"} alt={"ELIZQ"} />
+      <Slide cascade>
+        <GithubIcon />
+        <LinkedInIcon />
+      </Slide>
     </IconsContainer>
   )
 }
