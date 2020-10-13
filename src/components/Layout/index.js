@@ -7,6 +7,7 @@ import SocialMediaIcons from "./SocialMediaIcons"
 import RightSideBars from "./RightSideBars"
 import { Helmet } from "react-helmet"
 import { useIntl } from "gatsby-plugin-intl"
+import PropTypes from "prop-types"
 
 const GlobalStyles = createGlobalStyle`
   html {
@@ -45,19 +46,21 @@ const PageGrid = styled.div`
 `
 
 const PageWrapper = styled.div`
+  z-index: 10;
   grid-column: content-start / content-end;
   grid-row: content-start / content-end;
   opacity: 1;
+
+  @media (max-width: ${TABLET_SCREEN}) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 `
 
-const PageBackground = styled.div`
-  grid-column: start / content-end;
-  grid-row: start / content-end;
-  background: transparent linear-gradient(242deg, #636566 0%, #000000e6 100%) 0
-    0 no-repeat padding-box;
-`
-
-export default function Layout({ children }) {
+export default function Layout({
+  children,
+  BackgroundComponent = () => <React.Fragment />,
+}) {
   const intl = useIntl()
 
   const getCapitalizedTitle = () => {
@@ -75,7 +78,7 @@ export default function Layout({ children }) {
       <PageGrid>
         <GlobalStyles />
         <SocialMediaIcons />
-        <PageBackground />
+        <BackgroundComponent />
         <Navbar />
         <PageWrapper>{children}</PageWrapper>
         <RightSideBars />
@@ -83,4 +86,8 @@ export default function Layout({ children }) {
       </PageGrid>
     </React.Fragment>
   )
+}
+
+Layout.propTypes = {
+  BackgroundComponent: PropTypes.element.isRequired,
 }

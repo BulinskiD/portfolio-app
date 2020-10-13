@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Slide } from "react-awesome-reveal"
+import { TABLET_SCREEN } from "../../theme/breakpoints"
 
 const BarsContainer = styled(Slide)`
   grid-row: content-start / content-end;
@@ -10,8 +11,13 @@ const BarsContainer = styled(Slide)`
   align-items: flex-end;
   display: flex;
   flex-direction: column;
+  z-index: 30;
   gap: 4px;
   width: 12vw;
+
+  @media (max-width: ${TABLET_SCREEN}) {
+    display: none;
+  }
 `
 
 const Bar = styled.div`

@@ -15,7 +15,7 @@ const Container = styled.div`
   left: 0;
   width: 83%;
   height: 100vh;
-  z-index: 10;
+  z-index: 15;
   background: transparent linear-gradient(242deg, #636566 0%, #000000e6 100%) 0
     0 no-repeat padding-box;
   background-color: white;

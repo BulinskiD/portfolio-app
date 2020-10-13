@@ -6,10 +6,11 @@ import LinkedInIcon from "../../theme/icons/LinkedInIcon"
 import Slide from "react-awesome-reveal"
 
 const IconsContainer = styled.aside`
+  z-index: 15;
   grid-column: start / left-side-end;
   grid-row: content-start / content-end;
   justify-self: center;
-  margin-top: 40vh;
+  margin-top: 50vh;
   display: flex;
   gap: 25px;
   flex-direction: column;

@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby-plugin-intl"
 import styled from "styled-components"
 import Menu from "./Menu"
+import { TABLET_SCREEN } from "../../../theme/breakpoints"
 
 const NavbarContainer = styled.nav`
   position: relative;
@@ -11,6 +12,11 @@ const NavbarContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 5% 3% 0 0;
+
+  @media (max-width: ${TABLET_SCREEN}) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 `
 
 const Logo = styled.img`
