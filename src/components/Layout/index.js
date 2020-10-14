@@ -35,8 +35,8 @@ const PageGrid = styled.div`
   grid-template-columns: [left-side-start start] 8% [left-side-end content-start] 75% [content-end right-side-start] 17% [right-side-end end];
   grid-template-rows:
     [navbar-start start] 120px [navbar-end content-start] 1fr [content-end footer-start] minmax(
-      25%,
-      250px
+      250px,
+      25%
     )
     [footer-end end];
 
@@ -89,5 +89,5 @@ export default function Layout({
 }
 
 Layout.propTypes = {
-  BackgroundComponent: PropTypes.element.isRequired,
+  BackgroundComponent: PropTypes.func.isRequired,
 }

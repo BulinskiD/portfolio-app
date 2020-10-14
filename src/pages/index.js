@@ -4,6 +4,7 @@ import FloatingCircle from "../components/Layout/FloatingCircle"
 import styled from "styled-components"
 import { TABLET_SCREEN } from "../theme/breakpoints"
 import MainInfo from "../components/MainInfo"
+import SelectedWorks from "../components/SelectedWorks"
 
 const PageBackground = styled.div`
   overflow: hidden;
@@ -61,17 +62,12 @@ const Container = styled.div`
   grid-template-rows: [main-info-start] calc(100vh - 120px) [main-info-end projects-start] 1fr [projects-end];
 `
 
-const ProjectsInfo = styled.section`
-  grid-row: projects-start / projects-end;
-  height: 100vh;
-`
-
 export default function Home() {
   return (
     <Layout BackgroundComponent={Background}>
       <Container>
         <MainInfo />
-        <ProjectsInfo>Hi</ProjectsInfo>
+        <SelectedWorks />
       </Container>
     </Layout>
   )
