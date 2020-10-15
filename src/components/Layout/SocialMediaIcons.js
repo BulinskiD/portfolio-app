@@ -1,12 +1,11 @@
 import React from "react"
 import styled from "styled-components"
-import { TABLET_SCREEN } from "../../theme/breakpoints"
 import GithubIcon from "../../theme/icons/GithubIcon"
 import LinkedInIcon from "../../theme/icons/LinkedInIcon"
 import Slide from "react-awesome-reveal"
 
 const IconsContainer = styled.aside`
-  z-index: 15;
+  z-index: ${({ theme }) => theme.zValues.upperFloor};
   grid-column: start / left-side-end;
   grid-row: content-start / content-end;
   justify-self: center;
@@ -15,7 +14,7 @@ const IconsContainer = styled.aside`
   gap: 25px;
   flex-direction: column;
 
-  @media (max-width: ${TABLET_SCREEN}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     display: none;
   }
 `

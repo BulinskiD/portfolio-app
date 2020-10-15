@@ -1,13 +1,13 @@
 import React from "react"
-import styled, { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
 import Navbar from "./Navbar"
-import { TABLET_SCREEN } from "../../theme/breakpoints"
 import Footer from "./Footer"
 import SocialMediaIcons from "./SocialMediaIcons"
 import RightSideBars from "./RightSideBars"
 import { Helmet } from "react-helmet"
 import { useIntl } from "gatsby-plugin-intl"
 import PropTypes from "prop-types"
+import { theme } from "../../theme/theme"
 
 const GlobalStyles = createGlobalStyle`
   html {
@@ -20,7 +20,7 @@ const GlobalStyles = createGlobalStyle`
   
   body {
     background-color: white;
-    font-family: Roboto, sans-serif;
+    font-family: ${({ theme }) => theme.fonts.primary};
     margin: 0;
     padding: 0;
     max-width: 100%;
@@ -30,30 +30,25 @@ const GlobalStyles = createGlobalStyle`
 `
 
 const PageGrid = styled.div`
+  grid-template-rows: ${({ theme }) => theme.layout.rows};
+  grid-template-columns: ${({ theme }) => theme.layout.columns};
   display: grid;
   min-height: 100vh;
-  grid-template-columns: [left-side-start start] 8% [left-side-end content-start] 75% [content-end right-side-start] 17% [right-side-end end];
-  grid-template-rows:
-    [navbar-start start] 120px [navbar-end content-start] 1fr [content-end footer-start] minmax(
-      250px,
-      25%
-    )
-    [footer-end end];
 
-  @media (max-width: ${TABLET_SCREEN}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     grid-template-columns: [start left-side-end content-start] 100% [content-end end];
   }
 `
 
 const PageWrapper = styled.div`
-  z-index: 10;
+  z-index: ${({ theme }) => theme.zValues.upperFloor};
   grid-column: content-start / content-end;
   grid-row: content-start / content-end;
   opacity: 1;
 
-  @media (max-width: ${TABLET_SCREEN}) {
-    padding-left: 30px;
-    padding-right: 30px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding-left: ${({ theme }) => theme.spacing.pagePadding};
+    padding-right: ${({ theme }) => theme.spacing.pagePadding};
   }
 `
 
@@ -67,24 +62,26 @@ export default function Layout({
     const title = intl.formatMessage({
       id: window.location.pathname.split("/").pop() || "home",
     })
-    return title[0].toUpperCase() + title.slice(1)
+    return `${title[0].toUpperCase()}${title.slice(1)}`
   }
 
   return (
-    <React.Fragment>
-      <Helmet>
-        <title>{getCapitalizedTitle()}</title>
-      </Helmet>
-      <PageGrid>
+    <ThemeProvider theme={theme}>
+      <React.Fragment>
         <GlobalStyles />
-        <SocialMediaIcons />
-        <BackgroundComponent />
-        <Navbar />
-        <PageWrapper>{children}</PageWrapper>
-        <RightSideBars />
-        <Footer />
-      </PageGrid>
-    </React.Fragment>
+        <Helmet>
+          <title>{getCapitalizedTitle()}</title>
+        </Helmet>
+        <PageGrid>
+          <SocialMediaIcons />
+          <BackgroundComponent />
+          <Navbar />
+          <PageWrapper>{children}</PageWrapper>
+          <RightSideBars />
+          <Footer />
+        </PageGrid>
+      </React.Fragment>
+    </ThemeProvider>
   )
 }
 

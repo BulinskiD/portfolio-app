@@ -1,9 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import { MOBILE_SCREEN } from "../breakpoints"
 
 const StyledImg = styled.img`
-  @media (max-width: ${MOBILE_SCREEN}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     max-height: 60px;
   }
 `

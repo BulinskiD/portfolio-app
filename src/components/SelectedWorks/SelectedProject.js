@@ -9,8 +9,6 @@ const ProjectContainer = styled.section`
   width: 100%;
   cursor: pointer;
   transition: all 0.5s;
-  &:hover {
-  }
 `
 
 const ProjectSection = styled.div`
@@ -32,7 +30,13 @@ const Title = styled.h5`
   color: white;
   font-size: 46px;
   margin-left: -9px;
-  font-family: Orbitron, sans-serif;
+  font-family: ${({ theme }) => theme.fonts.secondary};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+  }
 `
 
 const ViewButton = styled(Link)`

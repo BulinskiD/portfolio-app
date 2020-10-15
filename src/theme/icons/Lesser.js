@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 
 const StyledSvg = styled.svg`
   width: 2.5vw;
-  fill: ${props => props.color};
+  fill: ${props => props.theme.colors[props.color]};
 `
 
 export default function Lesser(props) {

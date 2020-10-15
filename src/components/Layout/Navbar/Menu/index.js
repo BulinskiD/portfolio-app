@@ -5,12 +5,13 @@ import { fadeIn } from "../../../../theme/animations/fadeIn"
 import MenuModal from "./MenuModal"
 import { roll } from "../../../../theme/animations/roll"
 import { useIntl } from "gatsby-plugin-intl"
+import useCloseOnEscape from "./useCloseOnEscape"
 
 const MenuButton = styled.div`
   display: flex;
   cursor: pointer;
   align-items: center;
-  z-index: 1000;
+  z-index: ${({ theme }) => theme.zValues.logo};
 
   &:hover img {
     animation: ${props => (props.isOpen ? roll : tilt)} 0.5s;
@@ -27,28 +28,8 @@ const MenuButton = styled.div`
 `
 
 export default function Menu() {
-  const timeoutRef = React.useRef(0)
   const intl = useIntl()
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
-  const [shouldShowButton, setShouldShowButton] = React.useState(true)
-
-  React.useEffect(() => {
-    const handleClose = e => {
-      if (e.key === "Escape") {
-        setIsMenuOpen(false)
-      }
-    }
-    document.addEventListener("keyup", handleClose)
-    return () => document.removeEventListener("keyup", handleClose)
-  }, [])
-
-  React.useEffect(() => {
-    setShouldShowButton(false)
-    timeoutRef.current = setTimeout(() => setShouldShowButton(true), 200)
-    const timeout = timeoutRef.current
-
-    return () => window.clearInterval(timeout)
-  }, [isMenuOpen])
+  const { shouldShowButton, isMenuOpen, setIsMenuOpen } = useCloseOnEscape()
 
   return (
     <React.Fragment>

@@ -2,7 +2,6 @@ import React from "react"
 import Layout from "../components/Layout"
 import FloatingCircle from "../components/Layout/FloatingCircle"
 import styled from "styled-components"
-import { TABLET_SCREEN } from "../theme/breakpoints"
 import MainInfo from "../components/MainInfo"
 import SelectedWorks from "../components/SelectedWorks"
 
@@ -37,7 +36,7 @@ const FullPageCircle = styled.div`
   width: 250vh;
   height: 250vh;
   transform: rotate(260deg);
-  @media (max-width: ${TABLET_SCREEN}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     display: none;
   }
 `

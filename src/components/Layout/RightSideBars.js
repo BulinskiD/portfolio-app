@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { Slide } from "react-awesome-reveal"
-import { TABLET_SCREEN } from "../../theme/breakpoints"
 
 const BarsContainer = styled(Slide)`
   grid-row: content-start / content-end;
@@ -15,7 +14,7 @@ const BarsContainer = styled(Slide)`
   gap: 4px;
   width: 12vw;
 
-  @media (max-width: ${TABLET_SCREEN}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     display: none;
   }
 `

@@ -17,6 +17,11 @@ const FooterContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding: 30px 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding-left: ${({ theme }) => theme.spacing.pagePadding};
+    padding-right: ${({ theme }) => theme.spacing.pagePadding};
+  }
 `
 
 const IconsContainer = styled.div`

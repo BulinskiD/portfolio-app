@@ -1,9 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Link, FormattedMessage, useIntl } from "gatsby-plugin-intl"
-import { WHITE, YELLOW } from "../../../../theme/colors"
 import Slide from "react-awesome-reveal"
-import { MOBILE_SCREEN, TABLET_SCREEN } from "../../../../theme/breakpoints"
 
 const Container = styled.div`
   display: flex;
@@ -15,19 +13,19 @@ const Container = styled.div`
   left: 0;
   width: 83%;
   height: 100vh;
-  z-index: 15;
+  z-index: ${({ theme }) => theme.zValues.menu};
   background: transparent linear-gradient(242deg, #636566 0%, #000000e6 100%) 0
     0 no-repeat padding-box;
   background-color: white;
 
-  @media (max-width: ${TABLET_SCREEN}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     width: 100%;
   }
 `
 
 const MenuLink = styled(Link)`
   font-size: 96px;
-  font-family: Orbitron, sans-serif;
+  font-family: ${({ theme }) => theme.fonts.secondary};
   text-align: center;
   color: black;
   text-decoration: none;
@@ -39,30 +37,30 @@ const MenuLink = styled(Link)`
   }
 
   span[data-color="white"] {
-    color: ${WHITE};
+    color: ${({ theme }) => theme.colors.white};
   }
 
   span[data-color="yellow"] {
-    color: ${YELLOW};
+    color: ${({ theme }) => theme.colors.yellow};
   }
 
   &:hover {
-    color: ${YELLOW};
+    color: ${({ theme }) => theme.colors.yellow};
   }
 
   &:hover span[data-color="white"] {
-    color: ${YELLOW};
+    color: ${({ theme }) => theme.colors.yellow};
   }
 
   &:hover span[data-color="yellow"] {
-    color: ${WHITE};
+    color: ${({ theme }) => theme.colors.yellow};
   }
 
-  @media (max-width: ${TABLET_SCREEN}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 72px;
   }
 
-  @media (max-width: ${MOBILE_SCREEN}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 50px;
   }
 `
