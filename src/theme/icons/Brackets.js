@@ -8,9 +8,11 @@ const StyledImg = styled.img`
 `
 
 export function LeftCurlyBracket() {
-  return <StyledImg src={"/leftCurlyBracket.svg"} alt={"Left curly bracket"} />
+  return (
+    <StyledImg src={"/icons/leftCurlyBracket.svg"} alt={"Left curly bracket"} />
+  )
 }
 
 export function LeftBracket() {
-  return <StyledImg src={"/leftBracket.svg"} alt={"Left bracket"} />
+  return <StyledImg src={"/icons/leftBracket.svg"} alt={"Left bracket"} />
 }

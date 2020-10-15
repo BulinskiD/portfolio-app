@@ -46,10 +46,14 @@ const Background = () => {
     <PageBackground>
       <MainInfoBackground />
       <SmallCircle>
-        <FloatingCircle blur={8} backgroundUrl={"/Ellipse 2.svg"} />
+        <FloatingCircle blur={8} backgroundUrl={"/shapes/ellipse.svg"} />
       </SmallCircle>
       <FullPageCircle>
-        <FloatingCircle blur={70} noScale backgroundUrl={"/Ellipse 2.svg"} />
+        <FloatingCircle
+          blur={70}
+          noScale
+          backgroundUrl={"/shapes/ellipse.svg"}
+        />
       </FullPageCircle>
     </PageBackground>
   )
@@ -58,12 +62,16 @@ const Background = () => {
 const Container = styled.div`
   z-index: 1;
   display: grid;
-  grid-template-rows: [main-info-start] calc(100vh - 120px) [main-info-end projects-start] 1fr [projects-end];
+  grid-template-rows:
+    [main-info-start] calc(
+      100vh - ${({ theme }) => theme.pageDimensions.navbar}
+    )
+    [main-info-end projects-start] 1fr [projects-end];
 `
 
-export default function Home() {
+export default function Home({ location }) {
   return (
-    <Layout BackgroundComponent={Background}>
+    <Layout href={location.href} BackgroundComponent={Background}>
       <Container>
         <MainInfo />
         <SelectedWorks />

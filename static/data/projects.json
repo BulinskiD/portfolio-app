@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "slug": "/alinazachariasz",
+    "title": "alinazachariasz.pl website",
+    "imageURL": "/images/azkPage.png",
+    "isPromoted": true
+  },
+  {
+    "id": 2,
+    "slug": "/alinazachariasz1",
+    "title": "alinazachariasz.pl website",
+    "imageURL": "/images/azkPage.png",
+    "isPromoted": true
+  },
+  {
+    "id": 3,
+    "slug": "/alinazachariasz2",
+    "title": "alinazachariasz.pl website",
+    "imageURL": "/images/azkPage.png",
+    "isPromoted": true
+  },
+  {
+    "id": 4,
+    "slug": "/alinazachariasz3",
+    "title": "alinazachariasz.pl website",
+    "imageURL": "/images/azkPage.png",
+    "isPromoted": true
+  }
+]

@@ -54,13 +54,14 @@ const PageWrapper = styled.div`
 
 export default function Layout({
   children,
+  href,
   BackgroundComponent = () => <React.Fragment />,
 }) {
   const intl = useIntl()
 
   const getCapitalizedTitle = () => {
     const title = intl.formatMessage({
-      id: window.location.pathname.split("/").pop() || "home",
+      id: href?.split("/").pop() || "home",
     })
     return `${title[0].toUpperCase()}${title.slice(1)}`
   }
@@ -87,4 +88,5 @@ export default function Layout({
 
 Layout.propTypes = {
   BackgroundComponent: PropTypes.func.isRequired,
+  href: PropTypes.string,
 }

@@ -1,9 +1,9 @@
 import React from "react"
 import Layout from "../components/Layout"
 
-export default function Projects() {
+export default function Projects({ location }) {
   return (
-    <Layout>
+    <Layout href={location.href}>
       <div>Projects</div>
     </Layout>
   )

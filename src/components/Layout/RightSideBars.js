@@ -10,7 +10,7 @@ const BarsContainer = styled(Slide)`
   align-items: flex-end;
   display: flex;
   flex-direction: column;
-  z-index: 30;
+  z-index: ${({ theme }) => theme.zValues.logo};
   gap: 4px;
   width: 12vw;
 
