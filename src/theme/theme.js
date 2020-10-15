@@ -11,7 +11,7 @@ const breakpoints = {
 }
 
 const columns = {
-  leftSide: "8vw",
+  leftSide: "8%",
   content: "75%",
   rightSide: "17%",
 }

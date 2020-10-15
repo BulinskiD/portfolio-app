@@ -26,7 +26,7 @@ export default function SelectedWorks() {
       <SelectedWorksHeader />
       <ProjectsContainer>
         {promotedProjects.map(project => (
-          <SelectedProject key={project.id} />
+          <SelectedProject url={project.slug} key={project.id} />
         ))}
       </ProjectsContainer>
     </ProjectsInfo>
