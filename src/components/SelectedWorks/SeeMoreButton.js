@@ -11,6 +11,14 @@ const StyledLink = styled(Link)`
   color: ${({ theme }) => theme.colors.black};
   text-decoration: none;
   display: inline-block;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    font-size: 40px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    font-size: 35px;
+  }
 `
 
 const Row = styled.div`
@@ -21,6 +29,10 @@ const Row = styled.div`
   &:nth-child(1) {
     margin-top: 1em;
     margin-left: -37px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+      margin-left: 0;
+    }
   }
 
   &:nth-child(2) {

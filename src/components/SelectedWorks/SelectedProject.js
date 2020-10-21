@@ -24,6 +24,7 @@ const ProjectSection = styled.div`
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
         display: block;
         flex-basis: 100%;
+        filter: grayscale(0);
       }
     `}
 `
@@ -62,6 +63,10 @@ const ProjectContainer = styled(Link)`
 
   &:nth-of-type(2n):hover {
     margin-left: calc(-${({ theme }) => theme.pageDimensions.leftSide} + 10vw);
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+      margin-left: 0;
+    }
   }
 
   &:hover {
@@ -80,6 +85,7 @@ const ProjectContainer = styled(Link)`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     flex-direction: column;
     width: auto;
+
     &:nth-of-type(2n) {
       margin-left: 0;
     }
@@ -91,20 +97,41 @@ const ProjectContainer = styled(Link)`
   }
 `
 
-export default function SelectedProject({ url }) {
+const MobileTitle = styled.h5`
+  display: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    margin: -10% 0 0 0;
+    display: block;
+    font-size: 15px;
+    font-weight: 300;
+    max-width: 50%;
+  }
+`
+
+export default function SelectedProject({ project }) {
   return (
-    <ProjectContainer to={`/projects${url}`}>
-      <ProjectSection color={"black"}>
-        <Title>
-          alinazachariasz.pl <br /> website
-        </Title>
-        <Button>view project</Button>
-      </ProjectSection>
-      <ProjectSection image={"/azkPage.png"} />
-    </ProjectContainer>
+    <React.Fragment>
+      <ProjectContainer to={`/projects${project.slug}`}>
+        <ProjectSection color={"black"}>
+          <Title>{project.title}</Title>
+          <Button>view project</Button>
+        </ProjectSection>
+        <ProjectSection image={project.imageURL} />
+      </ProjectContainer>
+      <MobileTitle>{project.title}</MobileTitle>
+    </React.Fragment>
   )
 }
 
 SelectedProject.propTypes = {
-  url: PropTypes.string,
+  project: PropTypes.shape({
+    id: PropTypes.number,
+    slug: PropTypes.string,
+    title: PropTypes.string,
+    imageURL: PropTypes.string,
+    description: PropTypes.string,
+    technologies: PropTypes.arrayOf(PropTypes.string),
+    isPromoted: PropTypes.bool,
+  }),
 }

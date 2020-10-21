@@ -23,7 +23,7 @@ export default function SelectedWorks() {
       <SelectedWorksHeader />
       <ProjectsContainer>
         {promotedProjects.map(project => (
-          <SelectedProject url={project.slug} key={project.id} />
+          <SelectedProject project={project} key={project.id} />
         ))}
       </ProjectsContainer>
       <SeeMoreButton />

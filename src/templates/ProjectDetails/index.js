@@ -7,12 +7,23 @@ import { Link } from "gatsby-plugin-intl"
 
 const ProjectContainer = styled.section`
   margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
 `
 
 const ProjectTitle = styled.h3`
   font-family: ${({ theme }) => theme.fonts.secondary};
   font-size: 81px;
   max-width: 70%;
+  order: 1;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    font-size: 50px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 28px;
+  }
 `
 
 const ProjectPreview = styled.div`
@@ -21,6 +32,11 @@ const ProjectPreview = styled.div`
   position: relative;
   height: 45vh;
   background-color: ${({ theme }) => theme.colors.black};
+  order: 2;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    margin: 0;
+  }
 `
 
 const ProjectPic = styled.div`
@@ -30,6 +46,10 @@ const ProjectPic = styled.div`
   right: 0;
   height: 100%;
   width: 60%;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    width: 100%;
+  }
 `
 
 const ProjectInfo = styled.p`
@@ -37,6 +57,12 @@ const ProjectInfo = styled.p`
   font-weight: 300;
   font-size: 20px;
   padding: 60px 40px;
+  order: 4;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    border: none;
+    padding: 20px 0;
+  }
 `
 
 const TechnologiesTitle = styled.h5`
@@ -47,6 +73,10 @@ const TechnologiesContainer = styled.div`
   align-items: flex-start;
   display: flex;
   gap: 7%;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    flex-direction: column;
+  }
 `
 
 const Technology = styled.span`
@@ -64,13 +94,13 @@ const Technology = styled.span`
   &:hover {
     transform: scale(1.2);
   }
-`
 
-const Buttons = styled.div`
-  margin-bottom: 100px;
-  margin-top: 80px;
-  display: flex;
-  gap: 7%;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    margin-top: 20px;
+    &:nth-of-type(2n) {
+      margin-left: 20%;
+    }
+  }
 `
 
 const ButtonContainer = styled.div`
@@ -93,6 +123,30 @@ const ButtonContainer = styled.div`
       fill: white;
     }
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    width: 50%;
+    font-size: 17px;
+    border-width: 3.5px;
+    padding: 1%;
+  }
+`
+
+const Buttons = styled.div`
+  margin-bottom: 100px;
+  margin-top: 80px;
+  display: flex;
+  gap: 7%;
+  order: 10;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    align-items: flex-start;
+    order: 3;
+    margin: 30px 0;
+
+    ${ButtonContainer}:nth-of-type(2) {
+      margin-top: 15%;
+    }
+  }
 `
 
 const StyledLink = styled(Link)`
@@ -101,6 +155,7 @@ const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
   gap: 10px;
+  order: 11;
 `
 
 export default function ProjectDetails({ pageContext }) {

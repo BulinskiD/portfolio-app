@@ -21,7 +21,7 @@ export default function Projects({ location }) {
       <Title>projects</Title>
       <ProjectsContainer>
         {projects.map(project => (
-          <SelectedProject url={project.slug} key={project.id} />
+          <SelectedProject project={project} key={project.id} />
         ))}
       </ProjectsContainer>
     </Layout>

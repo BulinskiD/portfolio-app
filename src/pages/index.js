@@ -20,6 +20,18 @@ const MainInfoBackground = styled.div`
     0 no-repeat padding-box;
 `
 
+const ProjectsBackground = styled.div`
+  display: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    margin-left: 50%;
+    display: block;
+    grid-row: projects-start / projects-end;
+    background: transparent linear-gradient(242deg, #636566 0%, #000000e6 100%)
+      0 0 no-repeat padding-box;
+  }
+`
+
 const SmallCircle = styled.div`
   position: absolute;
   top: 50vh;
@@ -45,6 +57,7 @@ const Background = () => {
   return (
     <PageBackground>
       <MainInfoBackground />
+      <ProjectsBackground />
       <SmallCircle>
         <FloatingCircle blur={8} backgroundUrl={"/shapes/ellipse.svg"} />
       </SmallCircle>
