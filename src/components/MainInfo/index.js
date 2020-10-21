@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { LeftBracket, LeftCurlyBracket } from "../../theme/icons/Brackets"
+import Slide from "react-awesome-reveal"
 
 const MainInfoContainer = styled.section`
   padding-top: 50px;
@@ -14,6 +15,7 @@ const MainInfoContainer = styled.section`
 const HelloTypography = styled.h4`
   font-size: 96px;
   font-family: ${({ theme }) => theme.fonts.secondary};
+  margin-top: 60px;
   margin-bottom: 30px;
   color: black;
   &::first-letter {
@@ -34,7 +36,7 @@ const DescriptionTypography = styled.h5`
   width: 70%;
   max-width: 70vw;
   font-weight: 300;
-  font-size: 39px;
+  font-size: 35px;
   letter-spacing: 0;
   color: #000000;
 
@@ -96,24 +98,26 @@ const CodeSampleTypography = styled.span`
 export default function MainInfo() {
   return (
     <MainInfoContainer>
-      <HelloTypography>hello,</HelloTypography>
-      <DescriptionTypography>
-        I'm <YellowMarkup>Dawid Buliński</YellowMarkup>, a passionate Front-end
-        Developer, based in Poland.
-        <Introduction>
-          <IntroductionTypography>
-            Let me introduce You to my projects.
-          </IntroductionTypography>
-          <CodeSample>
-            <LeftCurlyBracket />
-            <LeftBracket />
-            <CodeSampleTypography>
-              const history = this.state.history.slice(0, this.state.stepNumber
-              + 1);
-            </CodeSampleTypography>
-          </CodeSample>
-        </Introduction>
-      </DescriptionTypography>
+      <Slide cascade>
+        <HelloTypography>hello,</HelloTypography>
+        <DescriptionTypography>
+          I'm <YellowMarkup>Dawid Buliński</YellowMarkup>, a passionate
+          Front-end Developer, based in Poland.
+          <Introduction>
+            <IntroductionTypography>
+              Let me introduce You to my projects.
+            </IntroductionTypography>
+            <CodeSample>
+              <LeftCurlyBracket />
+              <LeftBracket />
+              <CodeSampleTypography>
+                const history = this.state.history.slice(0,
+                this.state.stepNumber + 1);
+              </CodeSampleTypography>
+            </CodeSample>
+          </Introduction>
+        </DescriptionTypography>
+      </Slide>
     </MainInfoContainer>
   )
 }

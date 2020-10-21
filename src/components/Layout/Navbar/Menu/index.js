@@ -18,6 +18,8 @@ const MenuButton = styled.div`
   }
 
   &:hover {
+    mix-blend-mode: difference;
+
     &::before {
       content: "${props => props.helperText}";
       color: white;

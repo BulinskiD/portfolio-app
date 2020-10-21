@@ -22,7 +22,7 @@ const IconsContainer = styled.aside`
 export default function SocialMediaIcons() {
   return (
     <IconsContainer>
-      <Slide cascade>
+      <Slide cascade delay={1000}>
         <GithubIcon />
         <LinkedInIcon />
       </Slide>

@@ -11,7 +11,7 @@ const Container = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 83%;
+  width: 86%;
   height: 100vh;
   z-index: ${({ theme }) => theme.zValues.menu};
   background: transparent linear-gradient(242deg, #636566 0%, #000000e6 100%) 0

@@ -3,6 +3,7 @@ import styled from "styled-components"
 import SelectedProject from "./SelectedProject"
 import SelectedWorksHeader from "./SelectedWorksHeader"
 import { promotedProjects } from "../../../static/data/projects"
+import SeeMoreButton from "./SeeMoreButton"
 
 const ProjectsInfo = styled.section`
   grid-row: projects-start / projects-end;
@@ -14,10 +15,6 @@ const ProjectsContainer = styled.div`
   flex-direction: column;
   gap: 40px;
   margin-bottom: 40px;
-
-  section:nth-child(2n) {
-    margin-left: 10vw;
-  }
 `
 
 export default function SelectedWorks() {
@@ -29,6 +26,7 @@ export default function SelectedWorks() {
           <SelectedProject url={project.slug} key={project.id} />
         ))}
       </ProjectsContainer>
+      <SeeMoreButton />
     </ProjectsInfo>
   )
 }

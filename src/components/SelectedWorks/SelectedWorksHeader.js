@@ -17,7 +17,7 @@ const SelectedWorksTypography = styled.h5`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 40px;
+    font-size: 30px;
   }
 `
 
