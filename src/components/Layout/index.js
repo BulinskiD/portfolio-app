@@ -28,6 +28,11 @@ const GlobalStyles = createGlobalStyle`
     overflow-y: scroll;
     overflow-x: hidden;
   }
+  
+  input, textarea {
+    font-family: ${({ theme }) => theme.fonts.primary};
+    font-size: 20px;
+  }
 `
 
 const PageGrid = styled.div`

@@ -2,9 +2,10 @@ import React from "react"
 import Layout from "../../components/Layout"
 import styled from "styled-components"
 import Button from "../../components/shared/Button"
-import { ArrowLeft, ArrowRight } from "../../theme/icons/Arrows"
+import { ArrowLeft } from "../../theme/icons/Arrows"
 import { Link } from "gatsby-plugin-intl"
 import TechnologyTile from "../../components/shared/TechnologyTile"
+import BorderedButton from "../../components/shared/BorderedButton"
 
 const ProjectContainer = styled.section`
   margin-bottom: 80px;
@@ -79,34 +80,6 @@ const TechnologiesContainer = styled.div`
   }
 `
 
-const ButtonContainer = styled.div`
-  display: flex;
-  gap: 3%;
-  justify-content: center;
-  align-items: center;
-  width: 25%;
-  padding: 1% 4%;
-  border: 6px solid black;
-  cursor: pointer;
-  transition: all 0.3s;
-
-  &:hover {
-    color: white;
-    background-color: black;
-
-    ${ArrowRight} {
-      fill: white;
-    }
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    width: 50%;
-    font-size: 17px;
-    border-width: 3.5px;
-    padding: 1%;
-  }
-`
-
 const Buttons = styled.div`
   margin-bottom: 100px;
   margin-top: 80px;
@@ -117,10 +90,6 @@ const Buttons = styled.div`
     align-items: flex-start;
     order: 3;
     margin: 30px 0;
-
-    ${ButtonContainer}:nth-of-type(2) {
-      margin-top: 15%;
-    }
   }
 `
 
@@ -155,13 +124,8 @@ export default function ProjectDetails({ pageContext }) {
         </ProjectInfo>
 
         <Buttons>
-          <ButtonContainer>
-            source code <ArrowRight />
-          </ButtonContainer>
-
-          <ButtonContainer>
-            launch app <ArrowRight />
-          </ButtonContainer>
+          <BorderedButton>source code</BorderedButton>
+          <BorderedButton>launch app</BorderedButton>
         </Buttons>
 
         <StyledLink to={"/projects"}>
