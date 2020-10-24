@@ -20,6 +20,7 @@ const GlobalStyles = createGlobalStyle`
   
   body {
     background-color: white;
+    font-size: 20px;
     font-family: ${({ theme }) => theme.fonts.primary};
     margin: 0;
     padding: 0;

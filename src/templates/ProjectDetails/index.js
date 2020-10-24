@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Button from "../../components/shared/Button"
 import { ArrowLeft, ArrowRight } from "../../theme/icons/Arrows"
 import { Link } from "gatsby-plugin-intl"
+import TechnologyTile from "../../components/shared/TechnologyTile"
 
 const ProjectContainer = styled.section`
   margin-bottom: 80px;
@@ -55,7 +56,6 @@ const ProjectPic = styled.div`
 const ProjectInfo = styled.p`
   border: 8px solid black;
   font-weight: 300;
-  font-size: 20px;
   padding: 60px 40px;
   order: 4;
 
@@ -79,30 +79,6 @@ const TechnologiesContainer = styled.div`
   }
 `
 
-const Technology = styled.span`
-  background-color: ${({ theme }) => theme.colors.black};
-  color: ${({ theme }) => theme.colors.yellow};
-  font-size: 20px;
-  padding: 8px 5vw;
-  margin-top: ${() => Math.floor(Math.random() * 6)}%;
-  transition: all 0.3s;
-
-  &:nth-of-type(2n) {
-    color: ${({ theme }) => theme.colors.white};
-  }
-
-  &:hover {
-    transform: scale(1.2);
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    margin-top: 20px;
-    &:nth-of-type(2n) {
-      margin-left: 20%;
-    }
-  }
-`
-
 const ButtonContainer = styled.div`
   display: flex;
   gap: 3%;
@@ -111,7 +87,6 @@ const ButtonContainer = styled.div`
   width: 25%;
   padding: 1% 4%;
   border: 6px solid black;
-  font-size: 20px;
   cursor: pointer;
   transition: all 0.3s;
 
@@ -174,7 +149,7 @@ export default function ProjectDetails({ pageContext }) {
           <TechnologiesTitle>Web development languages:</TechnologiesTitle>
           <TechnologiesContainer>
             {pageContext.project.technologies.map(item => (
-              <Technology key={item}>{item}</Technology>
+              <TechnologyTile key={item}>{item}</TechnologyTile>
             ))}
           </TechnologiesContainer>
         </ProjectInfo>

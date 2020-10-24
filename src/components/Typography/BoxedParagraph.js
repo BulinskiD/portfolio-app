@@ -1,12 +1,17 @@
 import React from "react"
 import styled from "styled-components"
+import PropTypes from "prop-types"
 
-const Paragraph = styled.p`
+const Paragraph = styled.div`
   border: 8px solid black;
   position: relative;
-  font-size: 20px;
   padding: 90px 50px 50px 50px;
   margin: 3vh 0 10vh 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding: 90px 5px 5px 5px;
+    border: 2px solid black;
+  }
 `
 
 const ParagraphTitle = styled.h5`
@@ -20,16 +25,23 @@ const ParagraphTitle = styled.h5`
   border: 8px solid black;
   border-top: none;
   font-size: 33px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    border: 2px solid black;
+    border-top: none;
+    top: -2px;
+  }
 `
 
-export default function BoxedParagraph() {
+export default function BoxedParagraph({ title, children }) {
   return (
     <Paragraph>
-      <ParagraphTitle>my work</ParagraphTitle>
-      As a freelancer and a software company employee I developed many projects,
-      some of which are presented here. Also, here are some of my projects that
-      I created during my spare time.All of those projects are available on my
-      github repository.
+      <ParagraphTitle>{title}</ParagraphTitle>
+      {children}
     </Paragraph>
   )
+}
+
+BoxedParagraph.propTypes = {
+  title: PropTypes.string,
 }

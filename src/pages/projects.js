@@ -17,7 +17,12 @@ const ProjectsContainer = styled.div`
 export default function Projects({ location }) {
   return (
     <Layout href={location.href}>
-      <BoxedParagraph />
+      <BoxedParagraph title={"my work"}>
+        As a freelancer and a software company employee I developed many
+        projects, some of which are presented here. Also, here are some of my
+        projects that I created during my spare time.All of those projects are
+        available on my github repository.
+      </BoxedParagraph>
       <Title>projects</Title>
       <ProjectsContainer>
         {projects.map(project => (
