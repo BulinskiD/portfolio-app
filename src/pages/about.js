@@ -1,10 +1,10 @@
 import React from "react"
 import Layout from "../components/Layout"
 
-export default function Contact({ location }) {
+export default function About({ location }) {
   return (
     <Layout href={location.href}>
-      <div>Contact</div>
+      <div>About</div>
     </Layout>
   )
 }
