@@ -3,6 +3,14 @@ import styled from "styled-components"
 import { Link, FormattedMessage, useIntl } from "gatsby-plugin-intl"
 import Slide from "react-awesome-reveal"
 
+const BackgroundContainer = styled.div`
+  position: fixed;
+  height: 300%;
+  width: 100%;
+  z-index: ${({ theme }) => theme.zValues.menu};
+  background-color: white;
+`
+
 const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -12,7 +20,7 @@ const Container = styled.div`
   top: 0;
   left: 0;
   width: 86%;
-  height: 100vh;
+  height: 100%;
   z-index: ${({ theme }) => theme.zValues.menu};
   background: transparent linear-gradient(242deg, #636566 0%, #000000e6 100%) 0
     0 no-repeat padding-box;
@@ -69,29 +77,31 @@ function MenuModal() {
   const intl = useIntl()
 
   return (
-    <Container>
-      <Slide cascade>
-        <MenuLink to={"/"}>
-          <FormattedMessage id={"home"} />
-        </MenuLink>
-        <MenuLink to={"/about"}>
-          <span data-color={"white"}>
-            {intl.formatMessage({ id: "about" }).split(" ").shift()}{" "}
-          </span>
-          <span data-color={"yellow"}>
-            {intl.formatMessage({ id: "about" }).split(" ").pop()}
-          </span>
-        </MenuLink>
-        <MenuLink to={"/projects"}>
-          <span data-color={"yellow"}>
-            <FormattedMessage id={"projects"} />
-          </span>
-        </MenuLink>
-        <MenuLink to={"/contact"}>
-          <FormattedMessage id={"contact"} />
-        </MenuLink>
-      </Slide>
-    </Container>
+    <BackgroundContainer>
+      <Container>
+        <Slide cascade>
+          <MenuLink to={"/"}>
+            <FormattedMessage id={"home"} />
+          </MenuLink>
+          <MenuLink to={"/about"}>
+            <span data-color={"white"}>
+              {intl.formatMessage({ id: "about" }).split(" ").shift()}{" "}
+            </span>
+            <span data-color={"yellow"}>
+              {intl.formatMessage({ id: "about" }).split(" ").pop()}
+            </span>
+          </MenuLink>
+          <MenuLink to={"/projects"}>
+            <span data-color={"yellow"}>
+              <FormattedMessage id={"projects"} />
+            </span>
+          </MenuLink>
+          <MenuLink to={"/contact"}>
+            <FormattedMessage id={"contact"} />
+          </MenuLink>
+        </Slide>
+      </Container>
+    </BackgroundContainer>
   )
 }
 

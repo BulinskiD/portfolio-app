@@ -18,11 +18,9 @@ const MenuButton = styled.div`
   }
 
   &:hover {
-    mix-blend-mode: difference;
-
     &::before {
       content: "${props => props.helperText}";
-      color: white;
+      color: black;
       margin-right: 15px;
       animation: ${fadeIn} 0.3s;
     }
@@ -46,7 +44,7 @@ export default function Menu() {
           onClick={() => setIsMenuOpen(openMenu => !openMenu)}
         >
           <img
-            src={isMenuOpen ? "/close.svg" : "/menu_burger.svg"}
+            src={isMenuOpen ? "/icons/close.svg" : "/icons/menu_burger.svg"}
             alt={"Menu"}
           />
         </MenuButton>
