@@ -57,18 +57,6 @@ const ProjectContainer = styled(Link)`
   cursor: pointer;
   transition: all 0.5s;
 
-  &:nth-of-type(2n) {
-    margin-left: 10vw;
-  }
-
-  &:nth-of-type(2n):hover {
-    margin-left: calc(-${({ theme }) => theme.pageDimensions.leftSide} + 10vw);
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-      margin-left: 0;
-    }
-  }
-
   &:hover {
     margin-left: -${({ theme }) => theme.pageDimensions.leftSide};
     width: calc(110%);
@@ -101,7 +89,7 @@ const MobileTitle = styled.h5`
   display: none;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    margin: -10% 0 0 0;
+    margin: 0;
     display: block;
     font-size: 15px;
     font-weight: 300;
@@ -109,9 +97,26 @@ const MobileTitle = styled.h5`
   }
 `
 
+const Project = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+
+  &:nth-of-type(2n) {
+    margin-left: 10vw;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    &:nth-of-type(2n) {
+      margin-left: 0;
+    }
+  }
+`
+
 export default function SelectedProject({ project }) {
   return (
-    <React.Fragment>
+    <Project>
       <ProjectContainer to={`/projects${project.slug}`}>
         <ProjectSection color={"black"}>
           <Title>{project.title}</Title>
@@ -120,7 +125,7 @@ export default function SelectedProject({ project }) {
         <ProjectSection image={project.imageURL} />
       </ProjectContainer>
       <MobileTitle>{project.title}</MobileTitle>
-    </React.Fragment>
+    </Project>
   )
 }
 
