@@ -19,6 +19,11 @@ const FormContainer = styled.form`
   }
 `
 
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
 const SubmitButton = styled.span`
   font-size: 26px;
   font-weight: 300;
@@ -33,11 +38,11 @@ export default function ContactForm() {
         <Input name={"name"} placeholder={"Your name"} />
         <Input name={"subject"} placeholder={"Your subject"} />
         <TextArea name={"message"} placeholder={"Message"} />
-        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        <ButtonContainer>
           <BorderedButton>
             <SubmitButton>submit</SubmitButton>
           </BorderedButton>
-        </div>
+        </ButtonContainer>
       </Fade>
     </FormContainer>
   )

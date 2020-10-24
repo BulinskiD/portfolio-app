@@ -26,7 +26,6 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     max-width: 100%;
     overflow-y: scroll;
-    overflow-x: hidden;
   }
   
   input, textarea {
@@ -40,6 +39,7 @@ const PageGrid = styled.div`
   grid-template-columns: ${({ theme }) => theme.layout.columns};
   display: grid;
   min-height: 100vh;
+  overflow-x: hidden;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     grid-template-columns: [start left-side-end content-start] 100% [content-end end];

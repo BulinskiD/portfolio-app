@@ -19,3 +19,9 @@ export function ArrowLeft() {
     />
   )
 }
+
+export function SimpleArrowTop({ style }) {
+  return (
+    <img style={style} src={"/icons/simple_arrow_top.svg"} alt={"Arrow top"} />
+  )
+}
